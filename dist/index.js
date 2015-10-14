@@ -130,7 +130,7 @@ var NodeWOS = (function () {
 
     /**
       * @method getOSName
-      * @return true if the current OS is Windows
+      * @return Attemp to discover what the current operation system name
     */
   }, {
     key: 'getOSName',
@@ -170,4 +170,5 @@ function getLinuxOperationSystemName() {
   return OSName;
 }
 
-exports.NodeWOS = NodeWOS;
+exports['default'] = new NodeWOS();
+module.exports = exports['default'];

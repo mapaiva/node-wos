@@ -97,7 +97,7 @@ class NodeWOS {
 
   /**
     * @method getOSName
-    * @return true if the current OS is Windows
+    * @return Attemp to discover what the current operation system name
   */
   getOSName() {
 
@@ -132,4 +132,4 @@ function getLinuxOperationSystemName() {
   return OSName;
 }
 
-export { NodeWOS };
+export default new NodeWOS();
