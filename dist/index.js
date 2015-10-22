@@ -70,6 +70,7 @@ var NodeWOS = (function () {
    * @private
    * @method getLinuxOperationSystemName
    * Attemp to discover what the current linux operation system name. Ex: ubuntu, fedora, openSuse
+   * @return {String} Operation system name or `lsb_release -d` response
   */
 
   /**
@@ -139,6 +140,8 @@ var NodeWOS = (function () {
       switch (this.platform) {
         case 'linux':
           return getLinuxOperationSystemName();
+        case 'mac':
+          return getMacOperationSystemName();
         default:
           return this.platform.concat(' ').concat(this.arch);
       }
@@ -155,19 +158,44 @@ var NodeWOS = (function () {
 
 function getLinuxOperationSystemName() {
   var OSName = undefined,
-      buffer = undefined;
+      buffer = (0, _child_process.execSync)('lsb_release -d'),
+      release = buffer.toString().toLowerCase();
 
-  buffer = (0, _child_process.execSync)('uname -a');
-
-  if (buffer.toString().toLowerCase().indexOf('ubuntu') > -1) {
+  if (release.indexOf('ubuntu') > -1) {
     OSName = 'ubuntu';
+  } else if (release.indexOf('fedora') > -1) {
+    OSName = 'fedora';
+  } else if (release.indexOf('opensuse') > -1) {
+    OSName = 'openSUSE';
+  } else if (release.indexOf('arch') > -1) {
+    OSName = 'arch';
+  } else if (release.indexOf('debian') > -1) {
+    OSName = 'debian';
+  } else if (release.indexOf('centos') > -1) {
+    OSName = 'centOS';
+  } else if (release.indexOf('gentoo') > -1) {
+    OSName = 'gentoo';
+  } else if (release.indexOf('majaro') > -1) {
+    OSName = 'manjaro';
+  } else if (release.indexOf('elementary') > -1) {
+    OSName = 'elementaryOS';
   } else {
-    OSName = 'linux';
+    return release;
   }
 
-  //TODO: Include more OS on the validation
-
   return OSName;
+}
+
+/**
+ * @private
+ * @method getMacOperationSystemName
+ * Attemp to discover what the current mac operation system name
+ * @return {String} `sw_vers -productVersion` response
+*/
+function getMacOperationSystemName() {
+  var buffer = (0, _child_process.execSync)('sw_vers -productVersion');
+
+  return buffer.toString();
 }
 
 exports['default'] = new NodeWOS();
