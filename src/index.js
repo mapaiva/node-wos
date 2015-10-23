@@ -106,6 +106,8 @@ class NodeWOS {
         return getLinuxOperationSystemName();
       case 'mac':
         return getMacOperationSystemName();
+      case 'windows':
+        return getWindowsOperationSystem();
       default:
         return this.platform.concat(' ').concat(this.arch);
     }
@@ -156,6 +158,18 @@ function getLinuxOperationSystemName() {
 */
 function getMacOperationSystemName() {
   let buffer = execSync('sw_vers -productVersion');
+
+  return buffer.toString();
+}
+
+/**
+ * @private
+ * @method getMacOperationSystemName
+ * Attemp to discover what the current windows operation system name
+ * @return {String} `wmic os get Caption /value` response
+*/
+function getWindowsOperationSystem() {
+  let buffer = execSync('wmic os get Caption /value');
 
   return buffer.toString();
 }
