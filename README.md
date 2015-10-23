@@ -15,10 +15,12 @@ npm i node-wos --save
 ```javascript
 var wos = require('node-wos');
 
-console.log(wos.isLinux());
-console.log(wos.platform);
+console.log(wos.isLinux()); // true
+console.log(wos.platform); // linux
 
-console.log(wos.arch);
+console.log(wos.arch); // 64bit
+
+console.log(wos.getOSName()); // ubuntu
 
 // Container to require('os')
 console.log(wos.OS);
@@ -76,8 +78,8 @@ Verify if the current os is freeBSD.
 #### return
 - **Boolean**
 
-### `NodeWOS.getOSName()` *It's very incomplete*
-Attemp to discover what the current operation system name. Ex: ubuntu, fedora...
+### `NodeWOS.getOSName()`
+Attemp to discover what the current operation system name. Ex: ubuntu, fedora, gentoo, Windows 10 Single Language...
 
 #### return
 - **String** Operation system name or *`{plataform} {arch}`*
