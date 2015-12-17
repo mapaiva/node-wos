@@ -1,10 +1,10 @@
 ![node-wos](http://i.imgur.com/QmqSPwv.png)
 
 # node-wos
-Node What Operation System - Utility for operation system informations
+Node What Operation System - Utility for operating system information.
 
 ## What is this?
-`node-wos` is a small wrapper to help you with the most commom operation system informations.
+`node-wos` is a small wrapper to help you with the most commom operating system information.
 
 ## Installation
 
@@ -40,11 +40,11 @@ console.log(wos.OS);
 Return the currrent platform.
 
 #### return
-- **String** Plataform can be `windows, linux, mac, freeBSD, solaris`
+- **String** Platform can be `windows, linux, mac, freeBSD, solaris`
 
 
 ### `NodeWOS.arch`
-Return the currrent architecture.
+Return the current architecture.
 
 #### return
 - **String** Architecture can be `64bit, 32bit, ARM`.
@@ -92,7 +92,7 @@ Attemp to discover what the current operation system name. Ex: ubuntu, fedora, g
 - **boolean** `verbose` : returns a non treated output for the os name command
 
 #### return
-- **String** Operation system name or *`{plataform} {arch}`*
+- **String** Operating system name or *`{platform} {arch}`*
 
 ## Cli API
 To see the all the cli options just execute
