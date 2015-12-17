@@ -70,6 +70,7 @@ var NodeWOS = (function () {
    * @private
    * @method getLinuxOperationSystemName
    * Attemp to discover what the current linux operation system name. Ex: ubuntu, fedora, openSuse
+   * @param verbose {boolean}
    * @return {String} Operation system name or `lsb_release -d` response
   */
 
@@ -131,15 +132,16 @@ var NodeWOS = (function () {
 
     /**
       * @method getOSName
+      * @param verbose {boolean}
       * @return Attemp to discover what the current operation system name
     */
   }, {
     key: 'getOSName',
-    value: function getOSName() {
+    value: function getOSName(verbose) {
 
       switch (this.platform) {
         case 'linux':
-          return getLinuxOperationSystemName();
+          return getLinuxOperationSystemName(verbose);
         case 'mac':
           return getMacOperationSystemName();
         case 'windows':
@@ -163,29 +165,33 @@ function getLinuxOperationSystemName() {
       buffer = (0, _child_process.execSync)('lsb_release -d'),
       release = buffer.toString().toLowerCase();
 
-  if (release.indexOf('ubuntu') > -1) {
-    OSName = 'ubuntu';
-  } else if (release.indexOf('fedora') > -1) {
-    OSName = 'fedora';
-  } else if (release.indexOf('opensuse') > -1) {
-    OSName = 'openSUSE';
-  } else if (release.indexOf('arch') > -1) {
-    OSName = 'arch';
-  } else if (release.indexOf('debian') > -1) {
-    OSName = 'debian';
-  } else if (release.indexOf('centos') > -1) {
-    OSName = 'centOS';
-  } else if (release.indexOf('gentoo') > -1) {
-    OSName = 'gentoo';
-  } else if (release.indexOf('majaro') > -1) {
-    OSName = 'manjaro';
-  } else if (release.indexOf('elementary') > -1) {
-    OSName = 'elementaryOS';
+  if (verbose) {
+    return buffer.toString();
   } else {
-    return release;
-  }
+    if (release.indexOf('ubuntu') > -1) {
+      OSName = 'ubuntu';
+    } else if (release.indexOf('fedora') > -1) {
+      OSName = 'fedora';
+    } else if (release.indexOf('opensuse') > -1) {
+      OSName = 'openSUSE';
+    } else if (release.indexOf('arch') > -1) {
+      OSName = 'arch';
+    } else if (release.indexOf('debian') > -1) {
+      OSName = 'debian';
+    } else if (release.indexOf('centos') > -1) {
+      OSName = 'centOS';
+    } else if (release.indexOf('gentoo') > -1) {
+      OSName = 'gentoo';
+    } else if (release.indexOf('majaro') > -1) {
+      OSName = 'manjaro';
+    } else if (release.indexOf('elementary') > -1) {
+      OSName = 'elementaryOS';
+    } else {
+      return release;
+    }
 
-  return OSName;
+    return OSName;
+  }
 }
 
 /**
@@ -194,7 +200,7 @@ function getLinuxOperationSystemName() {
  * Attemp to discover what the current mac operation system name
  * @return {String} `sw_vers -productVersion` response
 */
-function getMacOperationSystemName() {
+function getMacOperationSystemName(verbose) {
   var buffer = (0, _child_process.execSync)('sw_vers -productVersion');
 
   return buffer.toString();
@@ -206,7 +212,7 @@ function getMacOperationSystemName() {
  * Attemp to discover what the current windows operation system name
  * @return {String} `wmic os get Caption /value` response
 */
-function getWindowsOperationSystem() {
+function getWindowsOperationSystem(verbose) {
   var buffer = (0, _child_process.execSync)('wmic os get Caption /value');
 
   return buffer.toString();

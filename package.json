@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Utility for operation system information",
   "main": "dist/index.js",
+  "bin": {
+    "wos": "./dist/bin/wos.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
