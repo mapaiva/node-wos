@@ -160,7 +160,7 @@ var NodeWOS = (function () {
   return NodeWOS;
 })();
 
-function getLinuxOperationSystemName() {
+function getLinuxOperationSystemName(verbose) {
   var OSName = undefined,
       buffer = (0, _child_process.execSync)('lsb_release -d'),
       release = buffer.toString().toLowerCase();

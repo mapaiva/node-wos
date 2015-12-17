@@ -122,7 +122,7 @@ class NodeWOS {
  * @param verbose {boolean}
  * @return {String} Operation system name or `lsb_release -d` response
 */
-function getLinuxOperationSystemName() {
+function getLinuxOperationSystemName(verbose) {
   let OSName,
     buffer = execSync('lsb_release -d'),
     release = buffer.toString().toLowerCase();
