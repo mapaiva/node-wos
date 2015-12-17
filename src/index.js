@@ -106,9 +106,9 @@ class NodeWOS {
       case 'linux':
         return getLinuxOperationSystemName(verbose);
       case 'mac':
-        return getMacOperationSystemName);
+        return getMacOperationSystemName();
       case 'windows':
-        return getWindowsOperationSystem);
+        return getWindowsOperationSystem();
       default:
         return this.platform.concat(' ').concat(this.arch);
     }
@@ -122,7 +122,7 @@ class NodeWOS {
  * @param verbose {boolean}
  * @return {String} Operation system name or `lsb_release -d` response
 */
-function getLinuxOperationSystemName) {
+function getLinuxOperationSystemName() {
   let OSName,
     buffer = execSync('lsb_release -d'),
     release = buffer.toString().toLowerCase();

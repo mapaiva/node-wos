@@ -200,7 +200,7 @@ function getLinuxOperationSystemName() {
  * Attemp to discover what the current mac operation system name
  * @return {String} `sw_vers -productVersion` response
 */
-function getMacOperationSystemName(verbose) {
+function getMacOperationSystemName() {
   var buffer = (0, _child_process.execSync)('sw_vers -productVersion');
 
   return buffer.toString();
@@ -212,7 +212,7 @@ function getMacOperationSystemName(verbose) {
  * Attemp to discover what the current windows operation system name
  * @return {String} `wmic os get Caption /value` response
 */
-function getWindowsOperationSystem(verbose) {
+function getWindowsOperationSystem() {
   var buffer = (0, _child_process.execSync)('wmic os get Caption /value');
 
   return buffer.toString();
