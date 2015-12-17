@@ -33,8 +33,8 @@ if (argv['-arch']) {
 }
 
 // Default output if none arg is passed
-if (firstPrint) {
-  printOut('Usage: wos [name] [-p] [-a] [-v] [--verbose]\n    \n    Node What Operation System - Utility for operation system informations\n  ');
+if (firstPrint || argv['-help']) {
+  printOut('Usage: wos [name] [-p] [-a] [-v] [--verbose] [-help]\n\n    Node What Operation System - Utility for operation system informations\n  ');
 }
 
 process.stdout.write('\n');
