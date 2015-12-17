@@ -1,3 +1,5 @@
+![node-wos](http://i.imgur.com/QmqSPwv.png)
+
 # node-wos
 Node What Operation System - Utility for operation system informations
 
