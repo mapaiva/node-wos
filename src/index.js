@@ -97,13 +97,14 @@ class NodeWOS {
 
   /**
     * @method getOSName
+    * @param verbose {boolean}
     * @return Attemp to discover what the current operation system name
   */
-  getOSName() {
+  getOSName(verbose) {
 
     switch (this.platform) {
       case 'linux':
-        return getLinuxOperationSystemName();
+        return getLinuxOperationSystemName(verbose);
       case 'mac':
         return getMacOperationSystemName();
       case 'windows':
@@ -118,36 +119,41 @@ class NodeWOS {
  * @private
  * @method getLinuxOperationSystemName
  * Attemp to discover what the current linux operation system name. Ex: ubuntu, fedora, openSuse
+ * @param verbose {boolean}
  * @return {String} Operation system name or `lsb_release -d` response
 */
-function getLinuxOperationSystemName() {
+function getLinuxOperationSystemName(verbose) {
   let OSName,
     buffer = execSync('lsb_release -d'),
     release = buffer.toString().toLowerCase();
 
-  if (release.indexOf('ubuntu') > -1) {
-    OSName = 'ubuntu';
-  } else if (release.indexOf('fedora') > -1) {
-    OSName = 'fedora';
-  } else if (release.indexOf('opensuse') > -1) {
-    OSName = 'openSUSE';
-  } else if (release.indexOf('arch') > -1) {
-    OSName = 'arch';
-  } else if (release.indexOf('debian') > -1) {
-    OSName = 'debian';
-  } else if (release.indexOf('centos') > -1) {
-    OSName = 'centOS';
-  } else if (release.indexOf('gentoo') > -1) {
-    OSName = 'gentoo';
-  } else if (release.indexOf('majaro') > -1) {
-    OSName = 'manjaro';
-  } else if (release.indexOf('elementary') > -1) {
-    OSName = 'elementaryOS';
+  if (verbose) {
+    return buffer.toString();
   } else {
-    return release;
-  }
+    if (release.indexOf('ubuntu') > -1) {
+      OSName = 'ubuntu';
+    } else if (release.indexOf('fedora') > -1) {
+      OSName = 'fedora';
+    } else if (release.indexOf('opensuse') > -1) {
+      OSName = 'openSUSE';
+    } else if (release.indexOf('arch') > -1) {
+      OSName = 'arch';
+    } else if (release.indexOf('debian') > -1) {
+      OSName = 'debian';
+    } else if (release.indexOf('centos') > -1) {
+      OSName = 'centOS';
+    } else if (release.indexOf('gentoo') > -1) {
+      OSName = 'gentoo';
+    } else if (release.indexOf('majaro') > -1) {
+      OSName = 'manjaro';
+    } else if (release.indexOf('elementary') > -1) {
+      OSName = 'elementaryOS';
+    } else {
+      return release;
+    }
 
-  return OSName;
+    return OSName;
+  }
 }
 
 /**

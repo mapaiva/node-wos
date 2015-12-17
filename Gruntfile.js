@@ -3,7 +3,6 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     babel: {
-
       files: {
         expand: true,
         cwd: 'src',
@@ -14,8 +13,8 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['src/*.js', 'dist/app/*.js'],
-        tasks: ['babel']
+  	    files: ['src/**/*.js'],
+  	    tasks: ['babel']
       }
     }
   });
@@ -24,5 +23,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['babel']);
-  grunt.registerTask('dev', ['watch']);
+  grunt.registerTask('dev', ['babel', 'watch']);
 };

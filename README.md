@@ -1,3 +1,5 @@
+![node-wos](http://i.imgur.com/QmqSPwv.png)
+
 # node-wos
 Node What Operation System - Utility for operation system informations
 
@@ -8,6 +10,11 @@ Node What Operation System - Utility for operation system informations
 
 ```bash
 npm i node-wos --save
+```
+
+```bash
+# Global Installation
+npm i -g node-wos
 ```
 
 ## Example
@@ -78,12 +85,23 @@ Verify if the current os is freeBSD.
 #### return
 - **Boolean**
 
-### `NodeWOS.getOSName()`
+### `NodeWOS.getOSName([verbose])`
 Attemp to discover what the current operation system name. Ex: ubuntu, fedora, gentoo, Windows 10 Single Language...
+
+#### params
+- **boolean** `verbose` : returns a non treated output for the os name command
 
 #### return
 - **String** Operation system name or *`{plataform} {arch}`*
 
+## Cli API
+To see the all the cli options just execute
+
+```bash
+wos -help
+# or
+wos
+```
 
 ## Contributing
 `node-wos` is built using *ecma script 6* and use [babeljs]( https://babeljs.io/) to convert the code. To develop your changes just clone the project and execute the grunt task.
