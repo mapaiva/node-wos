@@ -1,6 +1,6 @@
 {
   "name": "node-wos",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Utility for operation system information",
   "main": "dist/index.js",
   "bin": {
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/mapaiva/node-wos#readme",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-babel": "^5.0.3",
+    "grunt-babel": "^6.0.0",
     "grunt-contrib-watch": "^0.6.1"
   }
 }
