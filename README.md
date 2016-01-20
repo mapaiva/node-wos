@@ -110,8 +110,10 @@ wos
 git clone https://github.com/mapaiva/node-wos.git
 cd node-wos
 npm install
-npm install -g grunt-cli
-grunt dev
+npm run dev
+
+#To build
+npm run build
 ```
 
 ## License

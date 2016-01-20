@@ -1,14 +1,10 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var _os = require('os');
 
@@ -16,12 +12,16 @@ var _os2 = _interopRequireDefault(_os);
 
 var _child_process = require('child_process');
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 /**
  * @class NodeWOS
  * NodeJS utility for OS information
 */
 
-var NodeWOS = (function () {
+var NodeWOS = function () {
   function NodeWOS() {
     _classCallCheck(this, NodeWOS);
 
@@ -67,14 +67,6 @@ var NodeWOS = (function () {
   }
 
   /**
-   * @private
-   * @method getLinuxOperationSystemName
-   * Attemp to discover what the current linux operation system name. Ex: ubuntu, fedora, openSuse
-   * @param verbose {boolean}
-   * @return {String} Operation system name or `lsb_release -d` response
-  */
-
-  /**
     * @method OS
     * @return NodeJS native OS module
   */
@@ -94,6 +86,7 @@ var NodeWOS = (function () {
       * @method isLinux
       * @return true if the current OS is Linux
     */
+
   }, {
     key: 'isLinux',
     value: function isLinux() {
@@ -104,6 +97,7 @@ var NodeWOS = (function () {
       * @method isMac
       * @return true if the current OS is Mac
     */
+
   }, {
     key: 'isMac',
     value: function isMac() {
@@ -114,6 +108,7 @@ var NodeWOS = (function () {
       * @method isSolaris
       * @return true if the current OS is Solaris
     */
+
   }, {
     key: 'isSolaris',
     value: function isSolaris() {
@@ -124,6 +119,7 @@ var NodeWOS = (function () {
       * @method isFreeBSD
       * @return true if the current OS is FreeBSD
     */
+
   }, {
     key: 'isFreeBSD',
     value: function isFreeBSD() {
@@ -135,6 +131,7 @@ var NodeWOS = (function () {
       * @param verbose {boolean}
       * @return Attemp to discover what the current operation system name
     */
+
   }, {
     key: 'getOSName',
     value: function getOSName(verbose) {
@@ -153,12 +150,20 @@ var NodeWOS = (function () {
   }], [{
     key: 'OS',
     value: function OS() {
-      return _os2['default'];
+      return _os2.default;
     }
   }]);
 
   return NodeWOS;
-})();
+}();
+
+/**
+ * @private
+ * @method getLinuxOperationSystemName
+ * Attemp to discover what the current linux operation system name. Ex: ubuntu, fedora, openSuse
+ * @param verbose {boolean}
+ * @return {String} Operation system name or `lsb_release -d` response
+*/
 
 function getLinuxOperationSystemName(verbose) {
   var OSName = undefined,
@@ -218,5 +223,4 @@ function getWindowsOperationSystem() {
   return buffer.toString();
 }
 
-exports['default'] = new NodeWOS();
-module.exports = exports['default'];
+exports.default = new NodeWOS();

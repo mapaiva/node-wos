@@ -3,11 +3,14 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     babel: {
-      files: {
-        expand: true,
-        cwd: 'src',
-        src: '**/*.js',
-        dest: 'dist'
+      options: {
+          presets: ['es2015']
+      },
+      dist: {
+        files: {
+          'dist/index.js': 'src/index.js',
+          'dist/bin/wos.js': 'src/bin/wos.js'
+        }
       }
     },
 

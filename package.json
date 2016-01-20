@@ -7,7 +7,9 @@
     "wos": "./dist/bin/wos.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "grunt dev",
+    "build": "grunt"
   },
   "repository": {
     "type": "git",
@@ -27,8 +29,10 @@
   },
   "homepage": "https://github.com/mapaiva/node-wos#readme",
   "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
     "grunt": "^0.4.5",
     "grunt-babel": "^6.0.0",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-watch": "^0.6.1"
   }
 }

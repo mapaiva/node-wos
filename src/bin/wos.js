@@ -29,7 +29,7 @@ if (argv['-arch']) {
 
 // Default output if none arg is passed
 if (firstPrint || argv['-help']) {
-  printOut(`Usage: wos [name] [-p] [-a] [-v] [--verbose] [-help]
+  printOut(`Usage: wos [name] [-p] [-arch] [-v] [--verbose] [-help]
 
     Node What Operation System - Utility for operation system informations
   `)
