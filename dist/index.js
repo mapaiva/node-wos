@@ -223,4 +223,4 @@ function getWindowsOperationSystem() {
   return buffer.toString();
 }
 
-exports.default = new NodeWOS();
+module.exports = new NodeWOS();
