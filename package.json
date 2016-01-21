@@ -1,6 +1,6 @@
 {
   "name": "node-wos",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Utility for operation system information",
   "main": "dist/index.js",
   "bin": {
