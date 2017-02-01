@@ -1,7 +1,5 @@
-![node-wos](http://i.imgur.com/QmqSPwv.png)
-
 # node-wos
-Node What Operation System - Utility for operating system information.
+Node What Operating System - Utility for operating system information.
 
 ## What is this?
 `node-wos` is a small wrapper to help you with the most commom operating system information.
@@ -86,7 +84,7 @@ Verify if the current os is freeBSD.
 - **Boolean**
 
 ### `NodeWOS.getOSName([verbose])`
-Attemp to discover what the current operation system name. Ex: ubuntu, fedora, gentoo, Windows 10 Single Language...
+Attemp to discover what the current operating system name. Ex: ubuntu, fedora, gentoo, Windows 10 Single Language...
 
 #### params
 - **boolean** `verbose` : returns a non treated output for the os name command
